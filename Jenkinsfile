@@ -8,9 +8,9 @@ pipeline {
 
         AWS_S3_BUCKET = "maven-spring" 
         ARTIFACT_NAME = "maven-wrapper.jar" 
-        AWS_EB_APP_NAME = "Mavenspringboot" 
+        AWS_EB_APP_NAME = "spring-maven" 
         AWS_EB_APP_VERSION = "${BUILD_ID}" 
-        AWS_EB_ENVIRONMENT = "Mavenspringboot-env" 
+        AWS_EB_ENVIRONMENT = "Springmaven-env" 
 
     }
 
