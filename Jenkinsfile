@@ -3,17 +3,14 @@ pipeline {
 
     environment {
 
-        AWS_ACCESS_KEY_ID     = credentials('manar-aws-secret-key-id ')
+        AWS_ACCESS_KEY_ID     = credentials('manar-aws-secret-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('manar-aws-secret-access-key')
 
-        AWS_S3_BUCKET = "manar-belt2d2-artifacts-123456" 
-        ARTIFACT_NAME = "hello-world.jar" 
-        AWS_EB_APP_NAME = "Manar-belt2-day2" 
+        AWS_S3_BUCKET = "maven-spring" 
+        ARTIFACT_NAME = "maven-wrapper.jar" 
+        AWS_EB_APP_NAME = "Mavenspringboot" 
         AWS_EB_APP_VERSION = "${BUILD_ID}" 
-        AWS_EB_ENVIRONMENT = "Manarbelt2day2-env" 
-
-        SONAR_IP = "52.23.193.18"
-        SONAR_TOKEN = "sqp_169bf61a4e91d7b14cb6bcba61ced558acc4fb5e"
+        AWS_EB_ENVIRONMENT = "Mavenspringboot-env" 
 
     }
 
@@ -47,19 +44,6 @@ pipeline {
                 always {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
-            }
-        }
-
-        stage('Quality Scan'){
-            steps {
-                sh '''
-
-                mvn clean verify sonar:sonar \
-                    -Dsonar.projectKey=online-Manar-D2B2 \
-                    -Dsonar.host.url=http://$SONAR_IP \
-                    -Dsonar.login=$SONAR_TOKEN
-
-                '''
             }
         }
 
