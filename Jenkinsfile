@@ -6,11 +6,11 @@ pipeline {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
 
-        AWS_S3_BUCKET = "maven-spring" 
+        AWS_S3_BUCKET = "jenkins-maven-0909" 
         ARTIFACT_NAME = "maven-wrapper.jar" 
-        AWS_EB_APP_NAME = "manar-mavenn-spring" 
+        AWS_EB_APP_NAME = "jenkins" 
         AWS_EB_APP_VERSION = "${BUILD_ID}" 
-        AWS_EB_ENVIRONMENT = "Manarmavennspring-env" 
+        AWS_EB_ENVIRONMENT = "Jenkins-env" 
 
     }
 
